@@ -29,6 +29,7 @@ public class Customer implements Serializable {
     @Column(name = "custID", unique = true) private int id;
     @Column(name = "firstName", nullable = false) private String fName;
     @Column(name = "lastName", nullable = false) private String lName;
+    @Column(name = "ksywa", nullable = false) private String ksywa;
 
     public String getKsywa() {
         return ksywa;
@@ -37,8 +38,6 @@ public class Customer implements Serializable {
     public void setKsywa(String ksywa) {
         this.ksywa = ksywa;
     }
-
-    @Column(name = "ksywa", nullable = false) private String ksywa;
 
     public int getID() {
         return id;
