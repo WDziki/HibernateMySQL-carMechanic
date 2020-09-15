@@ -30,6 +30,16 @@ public class Customer implements Serializable {
     @Column(name = "firstName", nullable = false) private String fName;
     @Column(name = "lastName", nullable = false) private String lName;
 
+    public String getKsywa() {
+        return ksywa;
+    }
+
+    public void setKsywa(String ksywa) {
+        this.ksywa = ksywa;
+    }
+
+    @Column(name = "ksywa", nullable = false) private String ksywa;
+
     public int getID() {
         return id;
     }

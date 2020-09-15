@@ -7,10 +7,10 @@ public class TestSystem {
             .createEntityManagerFactory("MyHibernateProject");
 
     public static void main(String[] args) {
-        addCustomer(1, "Sue", "Smith");
-        addCustomer(2, "Sam", "Smith");
-        addCustomer(3, "Sid", "Smith");
-        addCustomer(4, "Sally", "Smith");
+        addCustomer(1, "Sue", "Smith", "maly");
+        addCustomer(2, "Sam", "Smith","duzy");
+        addCustomer(3, "Sid", "Smith", "bobi");
+        addCustomer(4, "Sally", "Smith", "warchus");
         getCustomer(1);
         getCustomers();
         changeFName(4, "Mark");
@@ -18,7 +18,7 @@ public class TestSystem {
         ENTITY_MANAGER_FACTORY.close();
     }
 
-    public static void addCustomer(int id, String fname, String lname) {
+    public static void addCustomer(int id, String fname, String lname, String ksywa) {
         // The EntityManager class allows operations such as create, read, update, delete
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         // Used to issue transactions on the EntityManager
@@ -34,6 +34,7 @@ public class TestSystem {
             cust.setID(id);
             cust.setFName(fname);
             cust.setLName(lname);
+            cust.setKsywa(ksywa);
 
             // Save the customer object
             em.persist(cust);
