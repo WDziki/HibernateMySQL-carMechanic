@@ -65,7 +65,7 @@ public class TestSystem {
         try {
             // Get matching customer object and output
             cust = tq.getSingleResult();
-            System.out.println(cust.getFName() + " " + cust.getLName());
+            System.out.println("id " + cust.getID() +" "+ cust.getFName() + " " + cust.getLName());
         }
         catch(NoResultException ex) {
             ex.printStackTrace();
@@ -88,7 +88,7 @@ public class TestSystem {
         try {
             // Get matching customer object and output
             custs = tq.getResultList();
-            custs.forEach(cust->System.out.println(cust.getFName() + " " + cust.getLName()));
+            custs.forEach(cust->System.out.println("id " + cust.getID() +" "+ cust.getFName() + " " + cust.getLName()));
         }
         catch(NoResultException ex) {
             ex.printStackTrace();
