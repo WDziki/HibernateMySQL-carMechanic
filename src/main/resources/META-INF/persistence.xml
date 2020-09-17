@@ -4,7 +4,8 @@
 mapped to database tables. Database driver, location, userid and pw
  -->
 <persistence version="2.0"
-         xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/persistence"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
     <!-- Define a name used to get an entity manager. Define that you will
@@ -23,9 +24,9 @@ mapped to database tables. Database driver, location, userid and pw
             <!-- URL for DB -->
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/test4" />
             <!-- Username -->
-            <property name="javax.persistence.jdbc.user" value="dbadmin" />
+            <property name="javax.persistence.jdbc.user" value="root" />
             <!-- Password -->
-            <property name="javax.persistence.jdbc.password" value="turtledove" />
+            <property name="javax.persistence.jdbc.password" value="" />
         </properties>
 
     </persistence-unit>

@@ -1,7 +1,7 @@
 import javax.persistence.*;
 import java.util.List;
 
-public class TestSystem {
+public class Main {
     // Create an EntityManagerFactory when you start the application
     private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
             .createEntityManagerFactory("MyHibernateProject");
@@ -102,7 +102,6 @@ public class TestSystem {
     public static void changeFName(int id, String fname) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
-
         Customer cust = null;
 
         try {

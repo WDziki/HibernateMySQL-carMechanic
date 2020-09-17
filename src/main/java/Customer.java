@@ -34,11 +34,9 @@ public class Customer implements Serializable {
     public String getKsywa() {
         return ksywa;
     }
-
     public void setKsywa(String ksywa) {
         this.ksywa = ksywa;
     }
-
     public int getID() {
         return id;
     }
