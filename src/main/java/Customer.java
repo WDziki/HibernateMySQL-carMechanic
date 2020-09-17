@@ -1,7 +1,4 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /*
@@ -30,7 +27,15 @@ public class Customer implements Serializable {
     @Column(name = "firstName", nullable = false) private String fName;
     @Column(name = "lastName", nullable = false) private String lName;
     @Column(name = "ksywa", nullable = false) private String ksywa;
+    @Transient private String ignoredField;
+    //@Column(name = "id pojazdu") private int vehicleId;
 
+//    public int getVehicleId() {
+//        return vehicleId;
+//    }
+//    public void setVehicleId(int vehicleId) {
+//        this.vehicleId = vehicleId;
+//    }
     public String getKsywa() {
         return ksywa;
     }

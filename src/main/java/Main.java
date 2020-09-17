@@ -11,10 +11,13 @@ public class Main {
         addCustomer(2, "Sam", "Smith","duzy");
         addCustomer(3, "Sid", "Smith", "bobi");
         addCustomer(4, "Sally", "Smith", "warchus");
-        getCustomer(1);
-        getCustomers();
-        changeFName(4, "Mark");
-        deleteCustomer(3);
+//        getCustomer(1);
+//        getCustomers();
+//        changeFName(4, "Mark");
+//        deleteCustomer(3);
+
+        addVehicle(1, "mazda","mx5",2007,"gp56 bmo");
+
         ENTITY_MANAGER_FACTORY.close();
     }
 
@@ -138,6 +141,37 @@ public class Main {
             et.begin();
             cust = em.find(Customer.class, id);
             em.remove(cust);
+            et.commit();
+        } catch (Exception ex) {
+            // If there is an exception rollback changes
+            if (et != null) {
+                et.rollback();
+            }
+            ex.printStackTrace();
+        } finally {
+            // Close EntityManager
+            em.close();
+        }
+    }
+    public static void addVehicle(int id, String make, String model,int year,  String numberPlate) {
+        EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
+        EntityTransaction et = null;
+
+        try {
+            // Get transaction and start
+            et = em.getTransaction();
+            et.begin();
+
+            // Create and set values for new customer
+            Vehicle veh = new Vehicle();
+            veh.setID(id);
+            veh.setMake(make);
+            veh.setModel(model);
+            veh.setModelYear(year);
+            veh.setNumberPlate(numberPlate);
+
+            // Save the customer object
+            em.persist(veh);
             et.commit();
         } catch (Exception ex) {
             // If there is an exception rollback changes

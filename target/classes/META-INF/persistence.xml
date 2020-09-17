@@ -17,6 +17,8 @@ mapped to database tables. Database driver, location, userid and pw
 
         <!-- Define the object that should be persisted in the database -->
         <class>Dziki.Wojciech.MyHibernateProject.Customer</class>
+        <class>Dziki.Wojciech.MyHibernateProject.Vehicle</class>
+
 
         <properties>
             <!-- Driver for DB database -->
@@ -27,7 +29,8 @@ mapped to database tables. Database driver, location, userid and pw
             <property name="javax.persistence.jdbc.user" value="root" />
             <!-- Password -->
             <property name="javax.persistence.jdbc.password" value="" />
-            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
+            <!-- table auto creation -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>
