@@ -32,7 +32,7 @@ public class MainTest {
         em.remove(cust);
         et.commit();
     }
-    @Before
+    @After
     public void setUp() {
         MainTest.deleteExampleCustomer(0);
     }

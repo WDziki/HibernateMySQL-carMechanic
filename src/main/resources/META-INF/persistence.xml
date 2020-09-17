@@ -27,7 +27,7 @@ mapped to database tables. Database driver, location, userid and pw
             <property name="javax.persistence.jdbc.user" value="root" />
             <!-- Password -->
             <property name="javax.persistence.jdbc.password" value="" />
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/> -->
         </properties>
 
     </persistence-unit>
