@@ -3,8 +3,8 @@ import java.util.List;
 
 public class Main {
     // Create an EntityManagerFactory when you start the application
-    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence
-            .createEntityManagerFactory("MyHibernateProject");
+    private static final EntityManagerFactory ENTITY_MANAGER_FACTORY = Persistence.createEntityManagerFactory
+            ("MyHibernateProject");
 
     public static void main(String[] args) {
         addCustomer(1, "Sue", "Smith", "maly");
@@ -19,9 +19,9 @@ public class Main {
         addVehicle(1, "mazda","mx5",2007,"gp56 bmo");
         addVehicle(2, "mazda","rx5",2003,"abcd efg");
 
-        addVehicleToCustomer(1,2);
+        addVehicleToCustomer(1,1);
+        //addVehicleToCustomer(2,2);
         addVehicleToCustomer(2,2);
-        addVehicleToCustomer(2,1);
 
         ENTITY_MANAGER_FACTORY.close();
     }
@@ -220,16 +220,17 @@ public class Main {
     public static void addVehicleToCustomer (int vehicleId, int customerId) {
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction et = null;
+        Customer cust = null;
+        Vehicle veh = null;
 
         try {
             // Get transaction and start
             et = em.getTransaction();
             et.begin();
 
-            // Find customer and vehicle
-            Customer cust = em.find(Customer.class, customerId);
-            Vehicle veh = em.find(Vehicle.class, vehicleId);
-            //update veh value
+            // Find customer, vehicle and update value
+            cust = em.find(Customer.class, customerId);
+            veh = em.find(Vehicle.class, vehicleId);
             cust.setVehicle(veh);
 
             // Save the customer object
