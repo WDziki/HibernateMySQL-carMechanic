@@ -23,18 +23,19 @@ public class Customer implements Serializable {
     // Map id to the CustID field in the DB
     // You can have it auto generate
     // @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "custID", unique = true) private int id;
+    @Column(name = "ID", unique = true) private int id;
     @Column(name = "firstName", nullable = false) private String fName;
     @Column(name = "lastName", nullable = false) private String lName;
     @Column(name = "ksywa", nullable = false) private String ksywa;
     @Transient private String ignoredField;
-    @Column(name = "idPojazdu") private int vehicleId;
+    @OneToOne
+    @JoinColumn(name = "IDpojazdu") private Vehicle vehicle;
 
-    public int getVehicleId() {
-        return vehicleId;
+    public Vehicle getVehicle() {
+        return vehicle;
     }
-    public void setVehicleId(int vehicleId) {
-        this.vehicleId = vehicleId;
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
     public String getKsywa() {
         return ksywa;

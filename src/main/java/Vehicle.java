@@ -1,25 +1,21 @@
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
-
 @Entity
 @Table(name = "Vehicle")
 public class Vehicle implements Serializable {
     @Id
-    @Column (name = "vehicleId", unique = true) private int ID;
+    @Column (name = "ID", unique = true) private int id;
     @Column (name = "numerRejestracyjny", nullable = false)private String numberPlate;
     @Column (name = "marka", nullable = false)private String make;
     @Column (name = "model", nullable = false)private String model;
     @Column (name = "rokProdukcji", nullable = false)private int modelYear;
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNumberPlate() {
