@@ -1,7 +1,7 @@
 import javax.persistence.*;
 import java.io.Serializable;
 @Entity
-@Table(name = "Vehicle")
+@Table(name = "Vehicles")
 public class Vehicle implements Serializable {
     @Id
     @Column (name = "ID", unique = true) private int id;

@@ -18,6 +18,7 @@ public class Main {
 
         addVehicle(1, "mazda","mx5",2007,"gp56 bmo");
         addVehicle(2, "mazda","rx5",2003,"abcd efg");
+        getVehicle(1);
 
         addVehicleToCustomer(1,1);
         //addVehicleToCustomer(2,2);
@@ -65,7 +66,6 @@ public class Main {
         // the lowercase c refers to the object
         // :custID is a parameterized query thats value is set below
         String query = "SELECT c FROM Customer c WHERE c.id = :custID";
-
         // Issue the query and get a matching Customer
         TypedQuery<Customer> tq = em.createQuery(query, Customer.class);
         tq.setParameter("custID", id);
@@ -91,7 +91,6 @@ public class Main {
         // the lowercase c refers to the object
         // :custID is a parameterized query thats value is set below
         String strQuery = "SELECT c FROM Customer c WHERE c.id IS NOT NULL";
-
         // Issue the query and get a matching Customer
         TypedQuery<Customer> tq = em.createQuery(strQuery, Customer.class);
         List<Customer> custs = null;
@@ -197,7 +196,6 @@ public class Main {
         // the lowercase c refers to the object
         // :custID is a parameterized query thats value is set below
         String query = "SELECT v FROM Vehicle v WHERE v.id = :ID";
-
         // Issue the query and get a matching Customer
         TypedQuery<Vehicle> tq = em.createQuery(query, Vehicle.class);
         tq.setParameter("ID", id);
@@ -206,7 +204,7 @@ public class Main {
         try {
             // Get matching customer object and output
             veh = tq.getSingleResult();
-            System.out.println("id " + veh.getId());
+            System.out.println("id " + veh.getId() + veh.getMake() + veh.getModel());
         }
         catch(NoResultException ex) {
             ex.printStackTrace();

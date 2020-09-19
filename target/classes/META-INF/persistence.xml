@@ -30,7 +30,7 @@ mapped to database tables. Database driver, location, userid and pw
             <!-- Password -->
             <property name="javax.persistence.jdbc.password" value="" />
             <!-- table auto creation -->
-            <!-- <property name="hibernate.hbm2ddl.auto" value="create"/>-->
+             <property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
 
     </persistence-unit>

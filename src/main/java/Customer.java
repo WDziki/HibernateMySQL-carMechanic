@@ -11,7 +11,7 @@ import java.io.Serializable;
 // Entity defines which objects should be persisted in the database
 @Entity
 // Defines the name of the table created for the entity
-@Table(name = "customer")
+@Table(name = "Customers")
 public class Customer implements Serializable {
     //add default serialVersionID
     private static final long serialVersionID = 1l;
