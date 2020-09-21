@@ -42,7 +42,7 @@ public class MainTest {
         //given
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         //when
-        Main.addCustomer(0, "John", "Doe", "johnny");
+        Main.addCustomer( "John", "Doe", "johnny");
 
         String query = "SELECT c FROM Customer c WHERE c.id = 0";
         TypedQuery<Customer> tq = em.createQuery(query, Customer.class);

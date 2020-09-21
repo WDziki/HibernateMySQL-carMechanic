@@ -1,5 +1,7 @@
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * 2. The Java Persistance API (JPA) makes it easy to use object data with
@@ -22,20 +24,24 @@ public class Customer implements Serializable {
     // You can override the default column name
     // Map id to the CustID field in the DB
     // You can have it auto generate
-    // @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID", unique = true) private int id;
-    @Column(name = "firstName", nullable = false) private String fName;
-    @Column(name = "lastName", nullable = false) private String lName;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", unique = true, nullable = false) private int id;
+    @Column(name = "first_Name", nullable = false) private String fName;
+    @Column(name = "last_Name", nullable = false) private String lName;
     @Column(name = "ksywa", nullable = false) private String ksywa;
     @Transient private String ignoredField;
-    @OneToOne
-    @JoinColumn(name = "IDpojazdu") private Vehicle vehicle;
+    @OneToMany(mappedBy = "customer")
+    //@JoinColumn(name = "vehicleId") //MappedBy działa na poziomie encji, JoinColumn na poziomie bazy danych.
+    // Dlatego przy użyciu mappedBy otrzymujemy relacje one-to-one bidirectional w aplikacji, lecz w bazie danych jest to one-to-one undirectional.
+    //The mappedBy property is, what we use to tell Hibernate which variable we are using to represent the parent class in our child class.
+    private List<Vehicle> vehicles;
 
-    public Vehicle getVehicle() {
-        return vehicle;
+    public List<Vehicle> getVehicles() {
+        return vehicles;
     }
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
+
+    public void setVehicles(List<Vehicle> vehicles) {
+        this.vehicles = vehicles;
     }
     public String getKsywa() {
         return ksywa;
