@@ -1,5 +1,4 @@
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -8,10 +7,10 @@ public class Main {
             ("MyHibernateProject");
 
     public static void main(String[] args) {
-        addCustomer( "Sue", "Smith", "maly");
-        addCustomer( "Sam", "Smith","duzy");
-        addCustomer( "Sid", "Smith", "bobi");
-        addCustomer( "Sally", "Smith", "warchus");
+        addCustomer( "Sue", "Smith", 123456789);
+        addCustomer( "Sam", "Smith",789456123);
+        addCustomer( "Sid", "Smith", 123789456);
+        addCustomer( "Sally", "Smith", 987654321);
         getCustomer(1);
         getCustomers();
         changeFName(4, "Mark");
@@ -32,7 +31,7 @@ public class Main {
         ENTITY_MANAGER_FACTORY.close();
     }
 
-    public static void addCustomer(String fname, String lname, String ksywa) {
+    public static void addCustomer(String fname, String lname, Integer phone) {
         // The EntityManager class allows operations such as create, read, update, delete
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         // Used to issue transactions on the EntityManager
@@ -48,7 +47,7 @@ public class Main {
             //cust.setID(id);
             cust.setFName(fname);
             cust.setLName(lname);
-            cust.setKsywa(ksywa);
+            cust.setKsywa(phone);
 
             // Save the customer object
             em.persist(cust);

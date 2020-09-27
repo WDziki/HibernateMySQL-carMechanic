@@ -19,7 +19,7 @@ public class MainTest {
         customer.setID(id);
         customer.setFName("John");
         customer.setLName("Doe");
-        customer.setKsywa("johnny");
+        customer.setKsywa(000000000);
         em.persist(customer);
         et.commit();
     }
@@ -42,7 +42,7 @@ public class MainTest {
         //given
         EntityManager em = ENTITY_MANAGER_FACTORY.createEntityManager();
         //when
-        Main.addCustomer( "John", "Doe", "johnny");
+        Main.addCustomer( "John", "Doe", 000000000);
 
         String query = "SELECT c FROM Customer c WHERE c.id = 0";
         TypedQuery<Customer> tq = em.createQuery(query, Customer.class);

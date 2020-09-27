@@ -1,6 +1,5 @@
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -28,7 +27,7 @@ public class Customer implements Serializable {
     @Column(name = "ID", unique = true, nullable = false) private int id;
     @Column(name = "first_Name", nullable = false) private String fName;
     @Column(name = "last_Name", nullable = false) private String lName;
-    @Column(name = "ksywa", nullable = false) private String ksywa;
+    @Column(name = "phone_number", nullable = false) private Integer phone;
     @Transient private String ignoredField;
     @OneToMany(mappedBy = "customer")
     //@JoinColumn(name = "vehicleId") //MappedBy działa na poziomie encji, JoinColumn na poziomie bazy danych.
@@ -39,15 +38,14 @@ public class Customer implements Serializable {
     public List<Vehicle> getVehicles() {
         return vehicles;
     }
-
     public void setVehicles(List<Vehicle> vehicles) {
         this.vehicles = vehicles;
     }
-    public String getKsywa() {
-        return ksywa;
+    public Integer getKsywa() {
+        return phone;
     }
-    public void setKsywa(String ksywa) {
-        this.ksywa = ksywa;
+    public void setKsywa(Integer ksywa) {
+        this.phone = ksywa;
     }
     public int getID() {
         return id;
